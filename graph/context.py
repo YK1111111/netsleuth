@@ -11,7 +11,7 @@ from langchain_core.messages import BaseMessage, HumanMessage
 from langchain_core.messages.utils import count_tokens_approximately
 
 from agent.community.netsleuth.graph.state import NetSleuthState
-from agent.community.netsleuth.prompts.stage4 import (
+from agent.community.netsleuth.prompts.context import (
     NETSLEUTH_REACT_CONTEXT_COMPRESSION_PROMPT,
 )
 

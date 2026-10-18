@@ -1,12 +1,12 @@
-"""Prompt exports for NetSleuth's staged workflow."""
+"""Prompt exports for NetSleuth's diagnostic workflow."""
 
-from agent.community.netsleuth.prompts.stage2 import (
+from agent.community.netsleuth.prompts.workflow import (
     NETSLEUTH_DIAGNOSIS_PROMPT,
     NETSLEUTH_PLANNER_PROMPT,
     NETSLEUTH_SUBMISSION_PROMPT,
     NETSLEUTH_VERIFIER_PROMPT,
 )
-from agent.community.netsleuth.prompts.stage4 import (
+from agent.community.netsleuth.prompts.context import (
     NETSLEUTH_REACT_CONTEXT_COMPRESSION_PROMPT,
     NETSLEUTH_STATE_COMPRESSION_PROMPT,
 )

@@ -128,36 +128,6 @@ uv run ruff check src/agent/community/netsleuth
 
 NetSleuth 以 [MIT License](LICENSE) 发布，第三方项目说明见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。NIKA 官方仓库声明 NIKA 使用 MIT License；由于其仓库目前没有单独的完整许可证文件，本仓库不替 NIKA 作者补写或推断版权主体。
 
-## 发布为不带历史的新 GitHub 仓库
-
-不要在 NIKA 仓库内直接执行 `git init`。把本目录复制到 NIKA 之外的新目录，并排除父项目的 Git 元数据和运行产物：
-
-```bash
-mkdir -p /path/to/standalone-netsleuth
-rsync -a --exclude='.git' --exclude='__pycache__' --exclude='*.pyc' \
-  /path/to/nika/src/agent/community/netsleuth/ \
-  /path/to/standalone-netsleuth/
-
-cd /path/to/standalone-netsleuth
-git init -b main
-git add .
-git commit -m "Initial import of NetSleuth"
-git remote add origin git@github.com:<YOUR_ACCOUNT>/<YOUR_REPOSITORY>.git
-git push -u origin main
-```
-
-这样生成的是一个只有首次导入提交的新仓库，不包含 NIKA 的 Git 历史。独立仓库会包含 NetSleuth 的 `LICENSE` 和 NIKA 的第三方声明；如果 NIKA 后续补充或修改正式许可证及版权声明，应同步更新本仓库中的相关说明。
-
-在首次提交前检查待发布内容，确认没有密钥、实验结果或 NIKA 的 Git 元数据：
-
-```bash
-git status --short
-git ls-files
-git log --oneline
-```
-
-其中 `git log --oneline` 在首次提交后应只有一条 `Initial import of NetSleuth` 记录。
-
 ## 安全边界
 
 诊断阶段会对 MCP 命令工具应用只读策略，阻止明显的修复、配置变更和 benchmark 答案读取。提交阶段则使用 NIKA 的正式 submission MCP 流程。该策略是 Agent 层的防护，不应替代 NIKA 自身的权限隔离和两阶段工具网关。

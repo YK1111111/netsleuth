@@ -1,4 +1,4 @@
-"""Context-engineering prompts for NetSleuth's single-agent workflow."""
+"""Prompts for NetSleuth context compression and handoff."""
 
 from textwrap import dedent
 

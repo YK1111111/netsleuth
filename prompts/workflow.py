@@ -1,4 +1,4 @@
-"""Stage 2 prompts for plan, diagnose, verify, and submit."""
+"""Prompts for planning, diagnosis, verification, and submission."""
 
 from textwrap import dedent
 
